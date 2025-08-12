@@ -1,0 +1,24 @@
+HealthEase - Render Deploy Package
+
+Files:
+- app.py
+- requirements.txt
+- Procfile
+
+How to deploy (Render):
+1. Create a GitHub repo and push these files.
+2. Create a Render account and connect GitHub.
+3. Create a new "Web Service" and select the repo.
+4. Build Command: pip install -r requirements.txt
+   Start Command: gunicorn app:app
+5. Add environment variables in Render:
+   - HEALTHEASE_SECRET = (a random secret)
+   - OPENAI_API_KEY = (your OpenAI key)  [optional but recommended]
+6. Deploy. Use /seed to create demo accounts.
+
+Local run (optional):
+1. python3 -m venv venv
+2. source venv/bin/activate  (Windows: venv\Scripts\activate)
+3. pip install -r requirements.txt
+4. python app.py
+5. Open http://127.0.0.1:5000
